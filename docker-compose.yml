@@ -1,0 +1,13 @@
+#version: '3.8'
+
+services:
+  sentioscope:
+    build: .
+    container_name: sentioscope_platform
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./artifacts:/app/artifacts
+      - ./sentioscope.db:/app/sentioscope.db
+    environment:
+      - PYTHONUNBUFFERED=1
